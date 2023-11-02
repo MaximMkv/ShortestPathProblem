@@ -7,6 +7,10 @@ class Graph
     def add_edge(u, v, weight)
       @adjacency_list[u] ||= []
       @adjacency_list[u] << { vertex: v, weight: weight }
+
+            # Ребра у зворотному напрямку, щоб обчислити відстані від дочірньої вершини до батьківської
+    @adjacency_list[v] ||= []
+    @adjacency_list[v] << { vertex: u, weight: weight }
     end
   
     def dijkstra(start_vertex)
